@@ -1,0 +1,6 @@
+#!/usr/bin/bash
+
+VOL=$(amixer get Master | egrep -o "[0-9]+%" |     head -1 | egrep -o "[0-9]*")
+VOL=$(( $VOL + 5 ))
+
+amixer sset Master $VOL%

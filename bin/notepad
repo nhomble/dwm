@@ -1,0 +1,31 @@
+#!/usr/bin/bash
+
+PID=$(ps aux | grep NOTES | grep -v grep | awk '{print $2}')
+if [ -z $PID ]; then
+	exec /usr/bin/xterm -class NOTES -geometry 80x24+200+125 &
+else
+	kill $PID
+fi
+
+##
+##	Put this into my bashrc if missing
+##
+#isNOTE=false
+#temp=$(ps aux | grep NOTES | grep -v grep | awk '{print $2}')
+#if [ "$PPID" = "$temp" ]; then
+#	if [ ! -e /tmp/.notepad_dir ]; then
+#		echo "/home/nicolas/" > /tmp/.notepad_dir
+#	fi
+#	cd "$(cat /tmp/.notepad_dir)"
+#	isNOTE=true;
+#fi
+#
+#function cd(){
+#	builtin cd "$@";
+#	if [ $isNOTE = true ]; then
+#		pwd > /tmp/.notepad_dir
+#	fi	
+#	return
+#}
+#
+#
