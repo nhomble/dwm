@@ -10,22 +10,22 @@ fi
 ##
 ##	Put this into my bashrc if missing
 ##
-#isNOTE=false
-#temp=$(ps aux | grep NOTES | grep -v grep | awk '{print $2}')
-#if [ "$PPID" = "$temp" ]; then
-#	if [ ! -e /tmp/.notepad_dir ]; then
-#		echo "/home/nicolas/" > /tmp/.notepad_dir
-#	fi
-#	cd "$(cat /tmp/.notepad_dir)"
-#	isNOTE=true;
-#fi
-#
-#function cd(){
-#	builtin cd "$@";
-#	if [ $isNOTE = true ]; then
-#		pwd > /tmp/.notepad_dir
-#	fi	
-#	return
-#}
-#
-#
+# NOTE_DIR=~/.notepad_dir
+# isNOTE=false
+# temp=$(ps aux | grep NOTES | grep -v grep | awk '{print $2}')
+# if [[ "$PPID" = "$temp" ]]; then
+# 	if [[ ! -e "$NOTE_DIR" ]]; then
+# 		echo $HOME > $NOTE_DIR
+# 	fi
+# 	cd "$(cat $NOTE_DIR)"
+# 	isNOTE=true;
+# fi
+
+# function cd(){
+# 	builtin cd "$@";
+# 	if [[ $isNOTE = true ]]; then
+# 		pwd > $NOTE_DIR
+# 	fi	
+# 	return
+# }
+
