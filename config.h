@@ -1,7 +1,5 @@
 /* See LICENSE file for copyright and license details. */
 
-#define BIN "/home/nicolas/code/dwm/bin"
-
 /* appearance */
 static const unsigned int borderpx  = 1;        /* border pixel of windows */
 static const unsigned int snap      = 2;       /* snap pixel */
@@ -59,9 +57,9 @@ static const Layout layouts[] = {
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
 static const char *termcmd[]  = { "xterm", NULL };
-static const char *notecmd[] = { BIN"/notepad", NULL };
-static const char *volup[] = { BIN"/volup", NULL };
-static const char *voldown[] = { BIN"/voldown", NULL };
+static const char *notecmd[] = { BIN"notepad", NULL };
+static const char *volup[] = { BIN"volup", NULL };
+static const char *voldown[] = { BIN"voldown", NULL };
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
