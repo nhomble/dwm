@@ -11,11 +11,16 @@ static const char col_gray1[]       = "#222222";
 static const char col_gray2[]       = "#444444";
 static const char col_gray3[]       = "#bbbbbb";
 static const char col_gray4[]       = "#eeeeee";
+
+// tomorrow night colors
+static const char col_tomorrow_gray[]   = "#1d1f21";
+static const char col_tomorrow_green[]  = "#c5c8c6";
+
 static const char col_cyan[]        = "#005577";
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
-	[SchemeNorm] = { col_gray3, col_gray1, col_gray2 },
-	[SchemeSel]  = { col_gray4, col_cyan,  col_cyan  },
+	[SchemeNorm] = { col_tomorrow_green, col_tomorrow_gray, col_tomorrow_gray },
+	[SchemeSel]  = { col_tomorrow_gray, col_tomorrow_green,  col_tomorrow_green  },
 };
 
 /* tagging */
@@ -57,17 +62,19 @@ static const Layout layouts[] = {
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
 static const char *termcmd[]  = { "xterm", NULL };
-static const char *notecmd[] = { BIN"notepad", NULL };
+static const char *scatchcmd[] = { BIN"notepad", NULL };
 static const char *volup[] = { BIN"volup", NULL };
 static const char *voldown[] = { BIN"voldown", NULL };
+static const char *notecmd[] = { BIN"notepad", "-e", "'"EDITOR" "TODO"'", NULL };
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
 	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
 	{ MODKEY|ShiftMask,             XK_Return, spawn,          {.v = termcmd } },
-	{ MODKEY,						XK_u,	   spawn,		   { .v = notecmd } },
-	{ MODKEY,						XK_v,	   spawn,		   { .v = volup } },
-	{ MODKEY|ShiftMask,				XK_v,      spawn,		   { .v = voldown } },
+	{ MODKEY,						XK_u,	   spawn,		   {.v = scatchcmd } },
+	{ MODKEY|ShiftMask,				XK_u,	   spawn,		   {.v = notecmd } },
+	{ MODKEY,						XK_v,	   spawn,		   {.v = volup } },
+	{ MODKEY|ShiftMask,				XK_v,      spawn,		   {.v = voldown } },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },

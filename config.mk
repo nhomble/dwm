@@ -2,8 +2,9 @@
 VERSION = 6.2
 
 # Customize below to fit your system
-
+TODO = /home/${SUDO_USER}/.TODO
 BIN = $$(pwd)/bin/
+EDITOR = $$(which vim)
 
 # paths
 PREFIX = /usr/local
@@ -26,10 +27,8 @@ FREETYPEINC = /usr/include/freetype2
 INCS = -I${X11INC} -I${FREETYPEINC}
 LIBS = -L${X11LIB} -lX11 ${XINERAMALIBS} ${FREETYPELIBS}
 
-LOCAL_BIN := $(or $$BIN, "/home/$(whoami)/bin")
-
 # flags
-CPPFLAGS = -D_DEFAULT_SOURCE -D_BSD_SOURCE -D_POSIX_C_SOURCE=2 -DVERSION=\"${VERSION}\" -DBIN=\"${BIN}\" ${XINERAMAFLAGS}
+CPPFLAGS = -D_DEFAULT_SOURCE -D_BSD_SOURCE -D_POSIX_C_SOURCE=2 -DVERSION=\"${VERSION}\" -DBIN=\"${BIN}\" -DTODO=\"${TODO}\" -DEDITOR=\"$(EDITOR)\" ${XINERAMAFLAGS}
 #CFLAGS   = -g -std=c99 -pedantic -Wall -O0 ${INCS} ${CPPFLAGS}
 CFLAGS   = -std=c99 -pedantic -Wall -Wno-deprecated-declarations -Os ${INCS} ${CPPFLAGS}
 LDFLAGS  = ${LIBS}
