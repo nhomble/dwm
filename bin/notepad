@@ -2,10 +2,10 @@
 
 PID=$(ps aux | grep NOTES | grep -v grep | awk '{print $2}')
 if [ -z $PID ]; then
-	cmd="exec /usr/bin/xterm -class NOTES -geometry 80x24+200+125 $@"
+    cmd="exec /usr/bin/xterm -class NOTES -geometry 80x24+200+125 $@"
     eval $cmd &
 else
-	kill $PID
+    kill $PID
 fi
 
 ##
