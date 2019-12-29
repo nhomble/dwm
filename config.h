@@ -61,11 +61,11 @@ static const Layout layouts[] = {
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
-static const char *termcmd[]  = { "xterm", NULL };
+static const char *termcmd[]  = { "st", NULL };
 static const char *scatchcmd[] = { BIN"notepad", NULL };
 static const char *volup[] = { BIN"volup", NULL };
 static const char *voldown[] = { BIN"voldown", NULL };
-static const char *notecmd[] = { BIN"notepad", "-e", "'"EDITOR" "TODO"'", NULL };
+static const char *notecmd[] = { BIN"notepad", "-e", EDITOR, TODO, NULL };
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
