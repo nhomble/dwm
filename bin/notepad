@@ -1,9 +1,10 @@
 #!/usr/bin/bash
 
 PID=$(ps aux | grep NOTES | grep -v grep | awk '{print $2}')
-if [ -z $PID ]; then
-    cmd="exec /usr/bin/xterm -class NOTES -geometry 80x24+200+125 $@"
-    eval $cmd &
+if [[ -z $PID ]]; then
+    cmd="exec st -c NOTES -t Notepad -g 80x24+400+250 $@"
+    echo $cmd >> ~/.local/share/dwm.log
+    eval "$cmd" &2>> ~/.local/share/dwm.log
 else
     kill $PID
 fi
