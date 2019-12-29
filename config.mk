@@ -4,7 +4,7 @@ VERSION = 6.2
 # Customize below to fit your system
 TODO = /home/${SUDO_USER}/.TODO
 BIN = $$(pwd)/bin/
-EDITOR = $$(which vim)
+EDITOR = $$(which nvim)
 
 # paths
 PREFIX = /usr/local
