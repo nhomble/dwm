@@ -754,6 +754,7 @@ drawbars(void)
 void
 enternotify(XEvent *e)
 {
+    return;
 	Client *c;
 	Monitor *m;
 	XCrossingEvent *ev = &e->xcrossing;
@@ -1368,7 +1369,6 @@ restack(Monitor *m)
 	XSync(dpy, False);
 	while (XCheckMaskEvent(dpy, EnterWindowMask, &ev));
 }
-
 void
 run(void)
 {
