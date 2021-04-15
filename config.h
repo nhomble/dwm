@@ -35,6 +35,7 @@ static const Rule rules[] = {
 	{ "NOTES",    NULL,		  NULL,		  0,			True,		 -1 },
 };
 
+
 /* layout(s) */
 static const float mfact     = 0.55; /* factor of master area size [0.05..0.95] */
 static const int nmaster     = 1;    /* number of clients in master area */
@@ -66,6 +67,7 @@ static const char *scatchcmd[] = { BIN"notepad", NULL };
 static const char *volup[] = { BIN"volup", NULL };
 static const char *voldown[] = { BIN"voldown", NULL };
 static const char *notecmd[] = { BIN"notepad", "-e", EDITOR, TODO, NULL };
+static const      Arg rccmd  = SHCMD("~/.dwmrc");
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
